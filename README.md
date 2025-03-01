@@ -17,7 +17,7 @@ Le code HTML crée deux champs de texte (`input`) et un bouton. Lorsque l'utilis
 
 ### Exemple
 
-[🎥 Voir la démonstration](Videos/permutation.mp4)
+https://github.com/user-attachments/assets/cea6b18e-ac6d-4031-b74a-91f07909b711
 
 ### Code JavaScript
 
