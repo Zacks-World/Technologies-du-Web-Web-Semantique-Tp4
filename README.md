@@ -1,11 +1,7 @@
 # TD n°2: Introduction à JavaScript - Évènements
 
 Ce dépôt contient une série d'exercices pratiques conçus pour vous aider à comprendre et à maîtriser les événements en JavaScript. Chaque exercice aborde un concept différent, allant de la manipulation simple des éléments HTML à la création d'une calculatrice scientifique complète. Ces exercices sont parfaits pour les débutants en JavaScript et pour ceux qui souhaitent renforcer leurs compétences en programmation web.
-
 ---
-
-```markdown
-
 ## Exercice 1 : Permutation
 
 ### Objectif
@@ -19,7 +15,14 @@ L'objectif de cet exercice est de créer un formulaire simple contenant deux zon
 ### Structure du Code
 Le code HTML crée deux champs de texte (`input`) et un bouton. Lorsque l'utilisateur clique sur le bouton, la fonction JavaScript `Permuter()` est appelée. Cette fonction récupère les valeurs des deux champs, les échange, puis les réassigne aux champs.
 
+### Exemple
+
+<video controls src="Videos/permutation.mp4" title="Videos/Permutation"></video>
+
 ### Code JavaScript
+
+```markdown
+
 ```javascript
 function Permuter() {
     var Nb1 = N1.value; // Récupère la valeur du premier champ
@@ -28,7 +31,6 @@ function Permuter() {
     N2.value = Nb1;     // Affecte la valeur du premier champ au deuxième
 }
 ```
-
 ---
 
 ## Exercice 2 : Calculatrice Simple
@@ -43,6 +45,10 @@ Cet exercice consiste à créer une calculatrice simple capable d'effectuer les 
 
 ### Structure du Code
 Le code HTML crée trois champs de texte et quatre boutons. Chaque bouton appelle la fonction JavaScript `Op()` avec l'opération correspondante en paramètre. La fonction effectue le calcul et affiche le résultat dans le troisième champ.
+
+### Exemple
+
+<video controls src="Videos/Calcul simple.mp4" title="Calcul Simple"></video>
 
 ### Code JavaScript
 ```javascript
@@ -78,6 +84,10 @@ L'objectif de cet exercice est de développer un calculateur d'indice de masse c
 
 ### Structure du Code
 Le code HTML crée deux champs de texte pour le poids et la taille, un bouton pour déclencher le calcul, et un paragraphe pour afficher le résultat. La fonction JavaScript `Calculer()` effectue le calcul de l'IMC et détermine la catégorie en fonction de la valeur obtenue.
+
+### Exemple
+
+<video controls src="Videos/Calcul IMC.mp4" title="Title"></video>
 
 ### Code JavaScript
 ```javascript
@@ -122,6 +132,10 @@ Cet exercice consiste à créer une calculatrice scientifique en utilisant JavaS
 
 ### Structure du Code
 Le code HTML utilise une grille CSS pour organiser les boutons de la calculatrice. Chaque bouton appelle la fonction JavaScript `getButtonValue()` avec la valeur du bouton en paramètre. La fonction gère les opérations spéciales (comme les fonctions trigonométriques) et construit l'expression mathématique. La fonction `calculate()` évalue l'expression et affiche le résultat.
+
+### Exemple
+
+<video controls src="Videos/Calcul Avancee.mp4" title="Title"></video>
 
 ### Code JavaScript
 ```javascript
@@ -179,5 +193,3 @@ function clearDisplay() {
 1. Clonez ce dépôt sur votre machine locale.
 2. Ouvrez chaque fichier HTML (`ex1.html`, `ex2.html`, `ex3.html`, `ex4.html`) dans votre navigateur web.
 3. Suivez les instructions pour chaque exercice.
-4. 
-```
