@@ -48,7 +48,7 @@ Le code HTML crée trois champs de texte et quatre boutons. Chaque bouton appell
 
 ### Exemple
 
-<video controls src="Videos/Calcul simple.mp4" title="Calcul Simple"></video>
+https://github.com/user-attachments/assets/df89ca90-8335-4a1a-92bc-b99058d8f1f7
 
 ### Code JavaScript
 ```javascript
@@ -87,7 +87,7 @@ Le code HTML crée deux champs de texte pour le poids et la taille, un bouton po
 
 ### Exemple
 
-<video controls src="Videos/Calcul IMC.mp4" title="Title"></video>
+https://github.com/user-attachments/assets/2c583f01-1924-4831-8514-a3d6f027b0f9
 
 ### Code JavaScript
 ```javascript
@@ -135,7 +135,7 @@ Le code HTML utilise une grille CSS pour organiser les boutons de la calculatric
 
 ### Exemple
 
-<video controls src="Videos/Calcul Avancee.mp4" title="Title"></video>
+https://github.com/user-attachments/assets/ec179bd7-ed5a-4c22-bdac-e933b7baa6d5
 
 ### Code JavaScript
 ```javascript
