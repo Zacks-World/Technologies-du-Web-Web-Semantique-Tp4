@@ -17,7 +17,7 @@ Le code HTML crée deux champs de texte (`input`) et un bouton. Lorsque l'utilis
 
 ### Exemple
 
-<video controls src="Videos/permutation.mp4" title="Videos/Permutation"></video>
+[🎥 Voir la démonstration](Videos/permutation.mp4)
 
 ### Code JavaScript
 
