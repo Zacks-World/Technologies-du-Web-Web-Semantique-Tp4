@@ -97,59 +97,41 @@
             inverseMode = !inverseMode; // Toggle the inverse mode
             document.getElementById("invButton").classList.toggle("active"); // Optional: Highlight button when active
         }
-        function getButtonValue(Value){
-            if(Value==="x²"){
-                expression+="**2";
-                display.innerText+="^2";
-            }
-            else if (Value==="x^"){
-                expression+="**";
-                display.innerText+="^";
-            }
-            else if (Value==="×"){
-                expression+="*";
-                display.innerText+="×";
+        function getButtonValue(Value) {
+            const operations = {
+                "x²": { expr: "**2", display: "^2" },
+                "x^": { expr: "**", display: "^" },
+                "×": { expr: "*", display: "×" },
+                "÷": { expr: "/", display: "÷" },
+                "%": { expr: "/100", display: "%" },
+                "π": { expr: Math.PI, display: "π" },
+                "e": { expr: Math.E, display: "e" },
+                "√": { expr: "Math.sqrt(", display: "√(" },
+                "ln": { expr: "Math.log(", display: "ln(" },
+                "log": { expr: "Math.log10(", display: "log(" },
+                "EXP": { expr: "Math.exp(", display: "EXP(" }
+            };
 
-            }
-            else if (Value==="÷"){
-                expression+="/";
-                display.innerText+="÷";
+            // Trigonometric functions
+            const mathFunctions = new Set(["cos", "sin", "tan"]);
 
-            }
-            else if (Value==="%"){
-                expression+="/100";
-                display.innerText+="%";
-
-            }
-            else if (Value==="cos"|Value==="log"|Value==="sin"|Value==="tan"|Value==="ln"|Value==="EXP"){
-                if(Value==="ln")
-                expression+="Math.log(";
-                else if(Value==="log")
-                expression+="Math.log10(";
-                else if(Value==="EXP"){
-                expression+="Math.exp(";
-                }
-                else{
-                expression+="Math."+Value+"(";
-                }
-                display.innerText+=Value+"(";
-
-            }
-            else if (Value==="π"){
-                expression+=Math.PI;
-                display.innerText+=Value;
-            }
-            else if (Value==="e"){
-                expression+=Math.E;
-                display.innerText+=Value;
-            }
-            else{
-                display.innerText+=Value;
-                expression+=Value;
+            if (operations[Value]) {
+                expression += operations[Value].expr;
+                display.innerText += operations[Value].display;
+            } else if (mathFunctions.has(Value)) {
+                expression += `Math.${Value}(`;
+                display.innerText += `${Value}(`;
+            } else {
+                display.innerText += Value;
+                expression += Value;
             }
         }
+
         function calculate(){
-            display.innerText=eval(expression);
+            if(expression!==""){
+                display.innerText=eval(expression);
+                expression=eval(expression);
+            }
         }
         function clearDisplay(){
             display.innerText="";
