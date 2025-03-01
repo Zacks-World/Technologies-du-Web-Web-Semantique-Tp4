@@ -49,6 +49,9 @@
         .wide {
             grid-column: span 2;
         }
+        .active{
+            background-color: blue;
+        }
     </style>
 </head>
 <body>
@@ -61,7 +64,7 @@
         <button onclick="getButtonValue(this.innerText)">)</button>
         <button onclick="getButtonValue(this.innerText)">%</button>
         <button onclick="clearDisplay()">CE</button>
-        <button>Inv</button>
+        <button onclick="toggleInverse(this)">Inv</button>
         <button onclick="getButtonValue(this.innerText)">sin</button>
         <button onclick="getButtonValue(this.innerText)">ln</button>
         <button onclick="getButtonValue(this.innerText)">7</button>
@@ -93,9 +96,9 @@
     <script>
         let inverseMode = false;
         var expression="";
-        function toggleInverse() {
+        function toggleInverse(element) {
             inverseMode = !inverseMode; // Toggle the inverse mode
-            document.getElementById("invButton").classList.toggle("active"); // Optional: Highlight button when active
+            element.classList.toggle("active"); // Optional: Highlight button when active
         }
         function getButtonValue(Value) {
             const operations = {
@@ -109,19 +112,17 @@
                 "√": { expr: "Math.sqrt(", display: "√(" },
                 "ln": { expr: "Math.log(", display: "ln(" },
                 "log": { expr: "Math.log10(", display: "log(" },
-                "EXP": { expr: "Math.exp(", display: "EXP(" }
+                "EXP": { expr: "Math.exp(", display: "EXP(" },
+                "cos": { expr: "Math.cos(", display: "cos("},
+                "sin": { expr: "Math.sin(", display: "sin("},
+                "tan": { expr: "Math.tan(", display: "tan("},
             };
-
-            // Trigonometric functions
-            const mathFunctions = new Set(["cos", "sin", "tan"]);
 
             if (operations[Value]) {
                 expression += operations[Value].expr;
                 display.innerText += operations[Value].display;
-            } else if (mathFunctions.has(Value)) {
-                expression += `Math.${Value}(`;
-                display.innerText += `${Value}(`;
-            } else {
+            }
+            else {
                 display.innerText += Value;
                 expression += Value;
             }
