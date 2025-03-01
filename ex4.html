@@ -65,21 +65,21 @@
         <button onclick="getButtonValue(this.innerText)">%</button>
         <button onclick="clearDisplay()">CE</button>
         <button onclick="toggleInverse(this)">Inv</button>
-        <button onclick="getButtonValue(this.innerText)">sin</button>
+        <button class="inversible" onclick="getButtonValue(this.innerText)">sin</button>
         <button onclick="getButtonValue(this.innerText)">ln</button>
         <button onclick="getButtonValue(this.innerText)">7</button>
         <button onclick="getButtonValue(this.innerText)">8</button>
         <button onclick="getButtonValue(this.innerText)">9</button>
         <button onclick="getButtonValue(this.innerText)">÷</button>
         <button onclick="getButtonValue(this.innerText)">π</button>
-        <button onclick="getButtonValue(this.innerText)">cos</button>
-        <button onclick="getButtonValue(this.innerText)">log</button>
+        <button class="inversible" onclick="getButtonValue(this.innerText)">cos</button>
+        <button class="inversible" onclick="getButtonValue(this.innerText)">log</button>
         <button onclick="getButtonValue(this.innerText)">4</button>
         <button onclick="getButtonValue(this.innerText)">5</button>
         <button onclick="getButtonValue(this.innerText)">6</button>
         <button onclick="getButtonValue(this.innerText)">×</button>
         <button onclick="getButtonValue(this.innerText)">e</button>
-        <button onclick="getButtonValue(this.innerText)">tan</button>
+        <button class="inversible" onclick="getButtonValue(this.innerText)">tan</button>
         <button onclick="getButtonValue(this.innerText)">√</button>
         <button onclick="getButtonValue(this.innerText)">3</button>
         <button onclick="getButtonValue(this.innerText)">2</button>
@@ -98,7 +98,22 @@
         var expression="";
         function toggleInverse(element) {
             inverseMode = !inverseMode; // Toggle the inverse mode
-            element.classList.toggle("active"); // Optional: Highlight button when active
+            element.classList.toggle("active");
+            Inversibles=Array.from(document.getElementsByClassName("inversible"))
+            names_inv=["sin⁻¹","cos⁻¹","10^","tan⁻¹"]
+            names=["sin","cos","log","tan"]
+            let i=0
+            Inversibles.forEach(element => {
+                if(!inverseMode){
+                element.innerText=names[i]
+                }
+                else{
+                element.innerText=names_inv[i]
+                }
+                element.classList.toggle("active");
+                i++;
+            });
+
         }
         function getButtonValue(Value) {
             const operations = {
@@ -116,6 +131,10 @@
                 "cos": { expr: "Math.cos(", display: "cos("},
                 "sin": { expr: "Math.sin(", display: "sin("},
                 "tan": { expr: "Math.tan(", display: "tan("},
+                "sin⁻¹": {expr: "Math.asin(", display: "sin⁻¹("},
+                "cos⁻¹": {expr: "Math.acos(", display: "cos⁻¹("},
+                "tan⁻¹": {expr: "Math.atan(", display: "tan⁻¹("},
+                "10^": {expr: "Math.pow(10,", display: "10^"}
             };
 
             if (operations[Value]) {
