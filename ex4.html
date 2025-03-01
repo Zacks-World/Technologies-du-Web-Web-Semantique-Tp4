@@ -53,42 +53,108 @@
 </head>
 <body>
     <div class="calculator">
-        <div class="display"></div>
+        <div class="display" id="display"></div>
         <div></div>
         <div></div>
         <div></div>
-        <button>(</button>
-        <button>)</button>
-        <button>%</button>
-        <button>CE</button>
+        <button onclick="getButtonValue(this.innerText)">(</button>
+        <button onclick="getButtonValue(this.innerText)">)</button>
+        <button onclick="getButtonValue(this.innerText)">%</button>
+        <button onclick="clearDisplay()">CE</button>
         <button>Inv</button>
-        <button>sin</button>
-        <button>ln</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>÷</button>
-        <button>π</button>
-        <button>cos</button>
-        <button>log</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>×</button>
-        <button>e</button>
-        <button>tan</button>
-        <button>√</button>
-        <button>3</button>
-        <button>2</button>
-        <button>1</button>
-        <button>-</button>
-        <button>EXP</button>
-        <button>x²</button>
-        <button>x^</button>
-        <button>.</button>
-        <button>0</button>
-        <button>=</button>
-        <button>+</button>
+        <button onclick="getButtonValue(this.innerText)">sin</button>
+        <button onclick="getButtonValue(this.innerText)">ln</button>
+        <button onclick="getButtonValue(this.innerText)">7</button>
+        <button onclick="getButtonValue(this.innerText)">8</button>
+        <button onclick="getButtonValue(this.innerText)">9</button>
+        <button onclick="getButtonValue(this.innerText)">÷</button>
+        <button onclick="getButtonValue(this.innerText)">π</button>
+        <button onclick="getButtonValue(this.innerText)">cos</button>
+        <button onclick="getButtonValue(this.innerText)">log</button>
+        <button onclick="getButtonValue(this.innerText)">4</button>
+        <button onclick="getButtonValue(this.innerText)">5</button>
+        <button onclick="getButtonValue(this.innerText)">6</button>
+        <button onclick="getButtonValue(this.innerText)">×</button>
+        <button onclick="getButtonValue(this.innerText)">e</button>
+        <button onclick="getButtonValue(this.innerText)">tan</button>
+        <button onclick="getButtonValue(this.innerText)">√</button>
+        <button onclick="getButtonValue(this.innerText)">3</button>
+        <button onclick="getButtonValue(this.innerText)">2</button>
+        <button onclick="getButtonValue(this.innerText)">1</button>
+        <button onclick="getButtonValue(this.innerText)">-</button>
+        <button onclick="getButtonValue(this.innerText)">EXP</button>
+        <button onclick="getButtonValue(this.innerText)">x²</button>
+        <button onclick="getButtonValue(this.innerText)">x^</button>
+        <button onclick="getButtonValue(this.innerText)">.</button>
+        <button onclick="getButtonValue(this.innerText)">0</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="getButtonValue(this.innerText)">+</button>
     </div>
+    <script>
+        let inverseMode = false;
+        var expression="";
+        function toggleInverse() {
+            inverseMode = !inverseMode; // Toggle the inverse mode
+            document.getElementById("invButton").classList.toggle("active"); // Optional: Highlight button when active
+        }
+        function getButtonValue(Value){
+            if(Value==="x²"){
+                expression+="**2";
+                display.innerText+="^2";
+            }
+            else if (Value==="x^"){
+                expression+="**";
+                display.innerText+="^";
+            }
+            else if (Value==="×"){
+                expression+="*";
+                display.innerText+="×";
+
+            }
+            else if (Value==="÷"){
+                expression+="/";
+                display.innerText+="÷";
+
+            }
+            else if (Value==="%"){
+                expression+="/100";
+                display.innerText+="%";
+
+            }
+            else if (Value==="cos"|Value==="log"|Value==="sin"|Value==="tan"|Value==="ln"|Value==="EXP"){
+                if(Value==="ln")
+                expression+="Math.log(";
+                else if(Value==="log")
+                expression+="Math.log10(";
+                else if(Value==="EXP"){
+                expression+="Math.exp(";
+                }
+                else{
+                expression+="Math."+Value+"(";
+                }
+                display.innerText+=Value+"(";
+
+            }
+            else if (Value==="π"){
+                expression+=Math.PI;
+                display.innerText+=Value;
+            }
+            else if (Value==="e"){
+                expression+=Math.E;
+                display.innerText+=Value;
+            }
+            else{
+                display.innerText+=Value;
+                expression+=Value;
+            }
+        }
+        function calculate(){
+            display.innerText=eval(expression);
+        }
+        function clearDisplay(){
+            display.innerText="";
+            expression="";
+        }
+    </script>
 </body>
 </html>
